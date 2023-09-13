@@ -33,6 +33,10 @@ class SignIn extends React.Component {
         if (user.id) {
           this.props.loadUser(user);
           this.props.onRouteChange("home");
+        } else {
+          console.log(
+            "Sorry, either this account does not exist or the username or password is incorrect."
+          );
         }
       });
   };
