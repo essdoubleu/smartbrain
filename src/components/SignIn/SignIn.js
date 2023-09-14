@@ -1,5 +1,5 @@
 import React from "react";
-
+import "./SignIn.css";
 class SignIn extends React.Component {
   constructor(props) {
     super(props);
@@ -37,6 +37,8 @@ class SignIn extends React.Component {
           console.log(
             "Sorry, either this account does not exist or the username or password is incorrect."
           );
+          const alert = document.getElementById("failedLoginNotice");
+          alert.removeAttribute("id");
         }
       });
   };
@@ -47,8 +49,6 @@ class SignIn extends React.Component {
       <div>
         <article className="br3 ba dark-gray b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center">
           <main className="pa4 black-80">
-            {/* <form className="measure"> 
-            Removed form tag so that sign in works correctly, idk if I'll have to put it back when the app is ""live""*/}
             <fieldset id="sign_up" className="ba b--transparent ph0 mh0">
               <legend className="f1 fw6 ph0 mh0">Sign In</legend>
               <div className="mt3">
@@ -76,6 +76,17 @@ class SignIn extends React.Component {
                 />
               </div>
             </fieldset>
+            <article
+              className="failedLoginAlert br3 ba dark-gray b--black-10 mv4 w-100 o-80 mw6 shadow-5 center bg-light-gray"
+              id="failedLoginNotice"
+            >
+              <div className="lh-copy-mt3 dark-red">
+                <p>
+                  Sorry, either this account does not exist or the username or
+                  password is incorrect.
+                </p>
+              </div>
+            </article>
             <div className="">
               <input
                 onClick={this.onSubmitSignIn}
@@ -92,7 +103,6 @@ class SignIn extends React.Component {
                 Register
               </p>
             </div>
-            {/* </form> */}
           </main>
         </article>
       </div>
